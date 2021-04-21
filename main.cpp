@@ -17,6 +17,11 @@ int main(){
 	notEulerianGraph.printRelations();
 	
 	notEulerianGraph.printStatus();
+
+  std::cout << "Eulerian path:\n";
+  notEulerianGraph.printPath(notEulerianGraph.tryToFindEulerianPath()); 
+  std::cout << "Biggest path:\n";
+  notEulerianGraph.printPath(notEulerianGraph.tryToFindEulerianPath()); 
 	
 	std::cout << "---------------------------\n\n";
 	
@@ -34,6 +39,47 @@ int main(){
 	eulerianGraph.printRelations();
 	
 	eulerianGraph.printStatus();
+  
+  std::cout << "Eulerian path:\n";
+  eulerianGraph.printPath(eulerianGraph.tryToFindEulerianPath()); 
+  std::cout << "Biggest path:\n";
+  eulerianGraph.printPath(eulerianGraph.tryToFindEulerianPath()); 
+	
+	std::cout << "---------------------------\n\n";
+
+  std::cout << "---------------------------\n\n";
+	
+	Graph challenge = Graph();
+  NodeValue n1 = challenge.createNode(1);
+  NodeValue n2 = challenge.createNode(2);
+  NodeValue n3 = challenge.createNode(3);
+  NodeValue n4 = challenge.createNode(4);
+  NodeValue n5 = challenge.createNode(5);
+  NodeValue n6 = challenge.createNode(6);
+  NodeValue n7 = challenge.createNode(7);
+  NodeValue n8 = challenge.createNode(8);
+  NodeValue n9 = challenge.createNode(9);
+
+	challenge.printNodes();
+	
+	challenge.createRelation(n1, n2);
+	challenge.createRelation(n1, n3);
+	challenge.createRelation(n2, n4);
+	challenge.createRelation(n3, n4);
+  challenge.createRelation(n4, n5);
+  challenge.createRelation(n5, n6);
+  challenge.createRelation(n5, n7);
+  challenge.createRelation(n6, n8);
+  challenge.createRelation(n7, n9);
+  challenge.createRelation(n8, n9);
+	challenge.printRelations();
+	
+	challenge.printStatus();
+  
+  std::cout << "Eulerian path:\n";
+  challenge.printPath(challenge.tryToFindEulerianPath()); 
+  std::cout << "Biggest path:\n";
+  challenge.printPath(challenge.tryToFindEulerianPath()); 
 	
 	std::cout << "---------------------------\n\n";
 	

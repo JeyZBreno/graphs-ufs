@@ -3,6 +3,7 @@
 
 #include "GraphNode.h"
 #include "ValueTypes.h"
+#include "vector"
 
 class GraphNode;
 
@@ -21,6 +22,10 @@ public:
 	NodeValue retrieveNodeTwoValue();
 	
 	bool isRelationBetween(NodeValue valueOne, NodeValue valueTwo);
+
+  bool notIn(std::vector<NodeRelation*> relations);
+
+  GraphNode* getOtherNode(GraphNode* current);
 };
 
 #endif

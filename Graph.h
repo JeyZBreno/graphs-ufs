@@ -3,11 +3,16 @@
 
 #include<vector>
 #include "GraphNode.h"
+#include "NodeRelation.h"
 
 class Graph{
 	std::vector<GraphNode*> nodes;
 	
 	GraphNode* getNode(NodeValue value);
+
+  std::vector<NodeRelation*> tryNextStep(std::vector<NodeRelation*> previousPath, GraphNode* currentStep);
+
+  int numberOfRelations();
 	
 	public:
 	NodeValue createNode(NodeValue value);
@@ -21,12 +26,18 @@ class Graph{
 	bool isEulerian();
 	
 	bool isSemiEulerian();
+
+  std::vector<NodeRelation*> tryToFindEulerianPath();
+
+  std::vector<NodeRelation*> findBiggestPath();
 	
 	void printNodes();
 	
 	void printRelations();
 	
 	void printStatus();
+
+  void printPath(std::vector<NodeRelation*> path);
 };
 
 #endif

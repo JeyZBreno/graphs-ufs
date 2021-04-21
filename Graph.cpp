@@ -1,6 +1,7 @@
 #include "GraphNode.h"
 #include "NodeRelation.h"
 #include "Graph.h"
+#include "vector"
 #include "iostream"
 
 // Private -----------------------------------
@@ -14,7 +15,49 @@ GraphNode* Graph::getNode(NodeValue value){
 	return nullptr;
 }
 
+std::vector<NodeRelation*> Graph::tryNextStep(std::vector<NodeRelation*> previousPath, GraphNode* currentStep){
+  std::vector<NodeRelation*> relations = currentStep->getRelations();
+  std::vector<NodeRelation*> biggestPath = currentStep->getRelations();
+
+  for(auto i = relations.begin(); i != relations.end(); i++){
+    if((*i)->notIn(previousPath)){
+      std::vector<NodeRelation*> path = previousPath;
+      path.push_back(*i);
+
+      std::vector<NodeRelation*> pathResult = tryNextStep(path, (*i)->getOtherNode(currentStep));
+      if(pathResult.size() == numberOfRelations()){
+        return pathResult;
+      }
+    }
+  }
+  return previousPath;
+}
+
 // Public -----------------------------------
+
+std::vector<NodeRelation*> Graph::tryToFindEulerianPath(){
+  std::vector<NodeRelation*> result;
+  std::vector<NodeRelation*> emptyVector;
+  for(auto i = nodes.begin(); i != nodes.end(); i++){
+    result = tryNextStep(result, (*i));
+  }
+
+  if(result.size() == numberOfRelations()){
+    return result;
+  }
+  else {
+    return emptyVector;
+  }
+}
+
+std::vector<NodeRelation*> Graph::findBiggestPath(){
+  std::vector<NodeRelation*> result;
+  std::vector<NodeRelation*> emptyVector;
+  for(auto i = nodes.begin(); i != nodes.end(); i++){
+    result = tryNextStep(result, (*i));
+  }
+  return result;
+}
 
 NodeValue Graph::createNode(NodeValue value){
 	GraphNode* result = getNode(value);
@@ -76,6 +119,19 @@ bool Graph::isSemiEulerian(){
 	return oddRelationsCount == 2;
 }
 
+int Graph::numberOfRelations(){
+  std::vector<NodeRelation*> allRelations;
+  for(auto node = nodes.begin(); node != nodes.end(); node++){
+    std::vector<NodeRelation*> relations = (*node)->getRelations();
+    for(auto relation = relations.begin(); relation != relations.end(); relation++){
+      if((*relation)->notIn(allRelations)){
+        allRelations.push_back(*relation);
+      }
+    }
+  }
+  return allRelations.size();
+}
+
 void Graph::printNodes(){
 	std::cout << "Nodes:";
 	for(int i = 0; i < nodes.size(); i++){
@@ -107,6 +163,14 @@ void Graph::printStatus(){
 	else{
 		std::cout << "Is not eulerian\n";
 	}
+}
+
+void Graph::printPath(std::vector<NodeRelation*> path){
+  std::cout << "Path:";
+  for(auto i = path.begin(); i != path.end(); i++){
+    std::cout << " -> "<< (*i)->retrieveNodeOneValue() << " <-> "  << (*i)->retrieveNodeTwoValue();
+  }
+  std::cout << "\n\n";
 }
 
 
