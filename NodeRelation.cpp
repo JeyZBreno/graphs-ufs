@@ -1,5 +1,6 @@
 #include "NodeRelation.h"
 #include "GraphNode.h"
+#include "iostream"
 
 NodeRelation::NodeRelation(GraphNode* one, GraphNode* two){
 		nodeOne = one;
@@ -42,4 +43,8 @@ GraphNode* NodeRelation::getOtherNode(GraphNode* current){
   else{
     return nullptr;
   }
+}
+
+void NodeRelation::printRelation(GraphNode* currentNode){
+    std::cout << currentNode->getValue() << " -> "  << getOtherNode(currentNode)->getValue();
 }

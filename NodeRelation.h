@@ -26,6 +26,8 @@ public:
   bool notIn(std::vector<NodeRelation*> relations);
 
   GraphNode* getOtherNode(GraphNode* current);
+
+  void printRelation(GraphNode* currentNode);
 };
 
 #endif

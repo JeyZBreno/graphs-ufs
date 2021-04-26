@@ -18,10 +18,8 @@ int main(){
 	
 	notEulerianGraph.printStatus();
 
-  std::cout << "Eulerian path:\n";
-  notEulerianGraph.printPath(notEulerianGraph.tryToFindEulerianPath()); 
-  std::cout << "Biggest path:\n";
-  notEulerianGraph.printPath(notEulerianGraph.tryToFindEulerianPath()); 
+  std::cout << "Longest path:\n";
+  notEulerianGraph.printPath(notEulerianGraph.findBiggestPath()); 
 	
 	std::cout << "---------------------------\n\n";
 	
@@ -40,10 +38,8 @@ int main(){
 	
 	eulerianGraph.printStatus();
   
-  std::cout << "Eulerian path:\n";
-  eulerianGraph.printPath(eulerianGraph.tryToFindEulerianPath()); 
-  std::cout << "Biggest path:\n";
-  eulerianGraph.printPath(eulerianGraph.tryToFindEulerianPath()); 
+  std::cout << "Longest path:\n";
+  eulerianGraph.printPath(eulerianGraph.findBiggestPath()); 
 	
 	std::cout << "---------------------------\n\n";
 
@@ -76,10 +72,8 @@ int main(){
 	
 	challenge.printStatus();
   
-  std::cout << "Eulerian path:\n";
-  challenge.printPath(challenge.tryToFindEulerianPath()); 
-  std::cout << "Biggest path:\n";
-  challenge.printPath(challenge.tryToFindEulerianPath()); 
+  std::cout << "Longest path:\n";
+  challenge.printPath(challenge.findBiggestPath()); 
 	
 	std::cout << "---------------------------\n\n";
 	

@@ -10,7 +10,7 @@ class Graph{
 	
 	GraphNode* getNode(NodeValue value);
 
-  std::vector<NodeRelation*> tryNextStep(std::vector<NodeRelation*> previousPath, GraphNode* currentStep);
+  std::vector<NodeRelation*> runThroughGraph(std::vector<NodeRelation*> pastPath, GraphNode* currentNode);
 
   int numberOfRelations();
 	

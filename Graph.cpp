@@ -15,48 +15,51 @@ GraphNode* Graph::getNode(NodeValue value){
 	return nullptr;
 }
 
-std::vector<NodeRelation*> Graph::tryNextStep(std::vector<NodeRelation*> previousPath, GraphNode* currentStep){
-  std::vector<NodeRelation*> relations = currentStep->getRelations();
-  std::vector<NodeRelation*> biggestPath = currentStep->getRelations();
+std::vector<NodeRelation*> Graph::runThroughGraph(
+  std::vector<NodeRelation*> pastPath,
+  GraphNode* currentNode
+){
+  std::vector<NodeRelation*> longestPath = pastPath;
 
-  for(auto i = relations.begin(); i != relations.end(); i++){
-    if((*i)->notIn(previousPath)){
-      std::vector<NodeRelation*> path = previousPath;
-      path.push_back(*i);
+  std::vector<NodeRelation*> relations = currentNode->getRelations();
+  for(auto r = relations.begin(); r != relations.end(); r++ ){
+    NodeRelation* relation = *r;
 
-      std::vector<NodeRelation*> pathResult = tryNextStep(path, (*i)->getOtherNode(currentStep));
-      if(pathResult.size() == numberOfRelations()){
-        return pathResult;
+    if(relation->notIn(pastPath)){
+      std::vector<NodeRelation*> updatedPath = pastPath;
+      updatedPath.push_back(relation);
+      GraphNode* nextNode = relation->getOtherNode(currentNode);
+
+      std::vector<NodeRelation*> result = runThroughGraph(updatedPath, nextNode);
+
+      if(result.size() > longestPath.size()){
+        longestPath = result;
       }
+      else{ updatedPath = pastPath; }
     }
   }
-  return previousPath;
+  return longestPath;
 }
 
 // Public -----------------------------------
 
-std::vector<NodeRelation*> Graph::tryToFindEulerianPath(){
-  std::vector<NodeRelation*> result;
+std::vector<NodeRelation*> Graph::findBiggestPath(){
+  std::vector<NodeRelation*> longestPath;
   std::vector<NodeRelation*> emptyVector;
+
   for(auto i = nodes.begin(); i != nodes.end(); i++){
-    result = tryNextStep(result, (*i));
+    std::vector<NodeRelation*> result = runThroughGraph(emptyVector, (*i));
+    if(result.size() > longestPath.size()){
+      longestPath = result;
+    }
   }
 
-  if(result.size() == numberOfRelations()){
-    return result;
-  }
-  else {
-    return emptyVector;
-  }
+  return longestPath;
 }
 
-std::vector<NodeRelation*> Graph::findBiggestPath(){
-  std::vector<NodeRelation*> result;
+std::vector<NodeRelation*> tryToFindEulerianPath(){
   std::vector<NodeRelation*> emptyVector;
-  for(auto i = nodes.begin(); i != nodes.end(); i++){
-    result = tryNextStep(result, (*i));
-  }
-  return result;
+  return emptyVector;
 }
 
 NodeValue Graph::createNode(NodeValue value){
