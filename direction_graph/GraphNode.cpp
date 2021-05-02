@@ -23,12 +23,12 @@ void GraphNode::outboundTo(GraphNode* to){
 void GraphNode::removeOutboundArrow(GraphNode* to){
     Utils utils;
     to->notifyRemoval(this);
-    utils.removeNodeFrom(outbound, to);
+    outbound = utils.removeNodeFrom(outbound, to);
 }
 
 void GraphNode::notifyRemoval(GraphNode* from){
     Utils utils;
-    utils.removeNodeFrom(inbound, from);
+    inbound = utils.removeNodeFrom(inbound, from);
 }
 
 std::vector<GraphNode*> GraphNode::inboundNodes(){

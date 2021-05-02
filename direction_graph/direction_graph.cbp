@@ -31,6 +31,13 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="Graph.cpp" />
+		<Unit filename="Graph.h" />
+		<Unit filename="GraphNode.cpp" />
+		<Unit filename="GraphNode.h" />
+		<Unit filename="Utils.h" />
+		<Unit filename="ValueTypes.h" />
+		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

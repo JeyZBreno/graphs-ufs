@@ -47,9 +47,11 @@ std::vector<GraphNode*> Graph::applyKahnAlgorithm(){
 
     while(remainingNodes.size() != 0){
         GraphNode* retrievedNode = remainingNodes[0];
-        utils.removeNodeFrom(remainingNodes, retrievedNode);
+        remainingNodes = utils.removeNodeFrom(remainingNodes, retrievedNode);
         nodePath.push_back(retrievedNode);
-        for(auto a = retrievedNode->outboundNodes().begin(); a != retrievedNode->outboundNodes().end(); a++){
+
+        std::vector<GraphNode*> oubound = retrievedNode->outboundNodes();
+        for(auto a = oubound.begin(); a != oubound.end(); a++){
             GraphNode* targetNode = *a;
             retrievedNode->removeOutboundArrow(targetNode);
             std::vector<GraphNode*> inbound = targetNode->inboundNodes();
