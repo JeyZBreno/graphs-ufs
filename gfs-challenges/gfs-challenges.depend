@@ -35,7 +35,9 @@
 	"Node.h"
 	"utils.h"
 
-1620993364 c:\users\willian\desktop\graphs-ufs\gfs-challenges\include\graph.h
+1621001662 c:\users\willian\desktop\graphs-ufs\gfs-challenges\include\graph.h
+	"vector"
+	"Node.h"
 
 1620993364 c:\users\willian\desktop\graphs-ufs\gfs-challenges\include\node.h
 	"stdio.h"
@@ -44,11 +46,11 @@
 
 1620993364 c:\users\willian\desktop\graphs-ufs\gfs-challenges\include\typedef.h
 
-1620993364 c:\users\willian\desktop\graphs-ufs\gfs-challenges\include\utils.h
+1621001680 c:\users\willian\desktop\graphs-ufs\gfs-challenges\include\utils.h
 	"vector"
 	"iostream"
 
-1620993364 source:c:\users\willian\desktop\graphs-ufs\gfs-challenges\src\graph.cpp
+1621001647 source:c:\users\willian\desktop\graphs-ufs\gfs-challenges\src\graph.cpp
 	"Graph.h"
 	"utils.h"
 

@@ -1,13 +1,19 @@
 #ifndef GRAPH_H
 #define GRAPH_H
 
-#import "vector"
-#import "Node.h"
+#include "vector"
+#include "Node.h"
 
 class Graph{
     std::vector<Node*> nodes;
 
     std::vector<Node*> tryToFindBiggestPathFrom(Node* currentNode, std::vector<Node*> previousPath);
+
+    std::vector<Node*> findPath(Graph targetGraph, Node* from, Node* to);
+
+    std::vector<Node*> tryToFindPath(Node* fromNode, Node* currentNode, std::vector<Node*> previousPath);
+
+    Graph createSubGraph(std::vector<Node*> subGraphNodes);
 
     public:
         Graph();
@@ -22,6 +28,10 @@ class Graph{
         Node* getNode(Value nodeValue);
 
         std::vector<Node*> findHamiltonianPath();
+
+        std::vector<Node*> depthSearch(Node* from, Node* to);
+
+        std::vector<Node*> widthSearch(Node* from, Node* to);
 };
 
 #endif

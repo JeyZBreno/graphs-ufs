@@ -13,7 +13,7 @@ static bool nodeListContains(std::vector<Node*> nodeList, Node* node){
     return false;
 }
 
-static bool printNodes(std::vector<Node*> nodeList){
+static void printNodes(std::vector<Node*> nodeList){
     std::cout << "Nodes:\n\n";
     for(auto i = nodeList.begin(); i != nodeList.end(); i++){
         std::cout << " -> " << (*i)->getValue();
@@ -21,7 +21,7 @@ static bool printNodes(std::vector<Node*> nodeList){
     std::cout << "\n\n";
 }
 
-static bool printPath(std::vector<Node*> nodeList){
+static void printPath(std::vector<Node*> nodeList){
     std::cout << "Path:\n\n";
     for(auto i = nodeList.begin(); i != nodeList.end(); i++){
         std::cout << " -> " << (*i)->getValue();
