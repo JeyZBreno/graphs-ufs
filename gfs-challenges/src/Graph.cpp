@@ -16,8 +16,14 @@ std::vector<Node*> Graph::getNodes(){
 }
 
 Node* Graph::createNode(Value nodeValue){
-    nodes.push_back(new Node(nodeValue));
-    return nodes.back();
+    Node* node = getNode(nodeValue);
+    if(node == nullptr){
+        nodes.push_back(new Node(nodeValue));
+        return nodes.back();
+    }
+    else{
+        return node;
+    }
 }
 
 Node* Graph::getNode(Value nodeValue){
@@ -30,8 +36,10 @@ Node* Graph::getNode(Value nodeValue){
 
 void Graph::removeNode(Value nodeValue){
     Node* node = getNode(nodeValue);
-    removeFromVector(nodes, node);
-    delete(node);
+    if(node =! nullptr){
+        removeFromVector(nodes, node);
+        delete(node);
+    }
 }
 
 NodeVector Graph::findHamiltonianPath(){
