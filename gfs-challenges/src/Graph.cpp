@@ -36,7 +36,7 @@ Node* Graph::getNode(Value nodeValue){
 
 void Graph::removeNode(Value nodeValue){
     Node* node = getNode(nodeValue);
-    if(node =! nullptr){
+    if(node != nullptr){
         removeFromVector(nodes, node);
         delete(node);
     }
