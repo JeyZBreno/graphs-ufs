@@ -14,11 +14,14 @@ static bool nodeListContains(std::vector<Node*> nodeList, Node* node){
 }
 
 static void printNodes(std::vector<Node*> nodeList){
-    std::cout << "Nodes:\n\n";
     for(auto i = nodeList.begin(); i != nodeList.end(); i++){
-        std::cout << " -> " << (*i)->getValue();
+        std::cout << "From:" << (*i)->getValue() << "\n";
+        std::vector<Node*> relations = (*i)->retrieveRelations();
+        for(auto j = relations.begin(); j != relations.end(); j++ ){
+            std::cout << " -> " << (*j)->getValue();
+        }
+        std::cout << "\n\n";
     }
-    std::cout << "\n\n";
 }
 
 static void printPath(std::vector<Node*> nodeList){

@@ -100,44 +100,50 @@ NodeVector Graph::tryToFindPath(Node* currentNode, Node* toNode, NodeVector prev
     NodeVector emptyVector;
     NodeVector currentRelations = currentNode->retrieveRelations();
 
-    if(previousPath.back() == toNode){
+    if(previousPath.back()->getValue() == toNode->getValue()){
         return previousPath;
     }
 
     for(auto i = currentRelations.begin(); i != currentRelations.end(); i++){
-        NodeVector result = tryToFindPath(toNode, *i, previousPath);
-        if(result.back() == toNode){
-            return result;
+        if(!(*i)->isInList(previousPath)){
+            NodeVector result = tryToFindPath(*i, toNode, previousPath);
+            if(result.size() != 0 && result.back()->getValue() == toNode->getValue()){
+                return result;
+            }
         }
     }
 
     return emptyVector;
 }
 
-NodeVector Graph::findPath(Graph targetGraph, Node* from, Node* to){
-    return targetGraph.depthSearch(from, to);
-}
-
 NodeVector Graph::widthSearch(Node* from, Node* to){
-    NodeVector toBeSearched = from->retrieveRelations();
-    NodeVector alreadySearched = {from};
+    NodeVector pendingSearch;
+    pendingSearch.push_back(from);
+    int currentIndex = 0;
 
-    for(auto i = toBeSearched.begin(); i != toBeSearched.end(); i++){
-        alreadySearched.push_back(*i);
+    Graph result;
+    while(pendingSearch.size() > currentIndex){
+        Node* current = pendingSearch[currentIndex];
+        NodeVector currentRelations = current->retrieveRelations();
+        Node* createdNode = result.createNode(current->getValue());
 
-        if((*i)->getValue() == to->getValue()){
+        if(current->getValue() == to->getValue()){
             break;
         }
 
-        NodeVector newRelations = (*i)->retrieveRelations();
-        for(auto j = newRelations.begin(); j != newRelations.end(); j++){
-            if(!(*j)->isInList(alreadySearched)){
-                toBeSearched.push_back(*j);
+        for(auto i = currentRelations.begin(); i != currentRelations.end(); i++){
+            Node* currentChild = *i;
+
+            if(result.getNode(currentChild->getValue()) == nullptr){
+                pendingSearch.push_back(currentChild);
+                Node* newChild = result.createNode(currentChild->getValue());
+                createdNode->createRelation(newChild);
             }
         }
+        currentIndex++;
     }
 
-    return findPath(createSubGraph(alreadySearched), from, to);
+    return result.depthSearch(result.getNode(from->getValue()), result.getNode(to->getValue()));
 }
 
 NodeVector Graph::depthSearch(Node* from, Node* to){

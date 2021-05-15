@@ -20,6 +20,7 @@ void Node::notifyDeletion(Node* deleted){
     for(auto i = relations.begin(); i != relations.end(); i++){
         if((*i)->getValue() == deleted->getValue()){
             relations.erase(i);
+            break;
         }
     }
 }

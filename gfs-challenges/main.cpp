@@ -27,7 +27,9 @@ int main(int filesCount, char** file){
     n4->createRelation(n3);
     n2->createRelation(n8);
 
+    //printNodes(g.getNodes());
     printPath(g.findHamiltonianPath());
+    printPath(g.widthSearch(n1, n8));
 
     return 1;
 }

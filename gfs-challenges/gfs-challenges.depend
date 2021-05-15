@@ -28,39 +28,39 @@
 
 1620950581 c:\users\willian\desktop\graphs-ufs\gfs-challenges\gfs-challenges\include\typedef.h
 
-1620993364 source:c:\users\willian\desktop\graphs-ufs\gfs-challenges\main.cpp
+1621045058 source:c:\users\willian\desktop\graphs-ufs\gfs-challenges\main.cpp
 	"iostream"
 	"string"
 	"Graph.h"
 	"Node.h"
 	"utils.h"
 
-1621001662 c:\users\willian\desktop\graphs-ufs\gfs-challenges\include\graph.h
+1621042575 c:\users\willian\desktop\graphs-ufs\gfs-challenges\include\graph.h
 	"vector"
 	"Node.h"
 
-1620993364 c:\users\willian\desktop\graphs-ufs\gfs-challenges\include\node.h
+1621040864 c:\users\willian\desktop\graphs-ufs\gfs-challenges\include\node.h
 	"stdio.h"
 	"vector"
 	"Typedef.h"
 
-1620993364 c:\users\willian\desktop\graphs-ufs\gfs-challenges\include\typedef.h
+1621040864 c:\users\willian\desktop\graphs-ufs\gfs-challenges\include\typedef.h
 
-1621001680 c:\users\willian\desktop\graphs-ufs\gfs-challenges\include\utils.h
+1621043904 c:\users\willian\desktop\graphs-ufs\gfs-challenges\include\utils.h
 	"vector"
 	"iostream"
 
-1621001647 source:c:\users\willian\desktop\graphs-ufs\gfs-challenges\src\graph.cpp
+1621046233 source:c:\users\willian\desktop\graphs-ufs\gfs-challenges\src\graph.cpp
 	"Graph.h"
 	"utils.h"
 
-1620993364 source:c:\users\willian\desktop\graphs-ufs\gfs-challenges\src\node.cpp
+1621044834 source:c:\users\willian\desktop\graphs-ufs\gfs-challenges\src\node.cpp
 	"Node.h"
 	"Typedef.h"
 	"utils.h"
 
-1620994206 source:c:\users\willian\desktop\graphs-ufs\gfs-challenges\src\position.cpp
+1621040864 source:c:\users\willian\desktop\graphs-ufs\gfs-challenges\src\position.cpp
 	"Position.h"
 
-1620994178 c:\users\willian\desktop\graphs-ufs\gfs-challenges\include\position.h
+1621040864 c:\users\willian\desktop\graphs-ufs\gfs-challenges\include\position.h
 

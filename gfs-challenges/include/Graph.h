@@ -9,8 +9,6 @@ class Graph{
 
     std::vector<Node*> tryToFindBiggestPathFrom(Node* currentNode, std::vector<Node*> previousPath);
 
-    std::vector<Node*> findPath(Graph targetGraph, Node* from, Node* to);
-
     std::vector<Node*> tryToFindPath(Node* fromNode, Node* currentNode, std::vector<Node*> previousPath);
 
     Graph createSubGraph(std::vector<Node*> subGraphNodes);
