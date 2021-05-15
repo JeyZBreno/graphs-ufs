@@ -1,0 +1,86 @@
+# depslib dependency file v1.0
+1620961431 source:c:\users\willian\desktop\graphs-ufs\gfs-challenges\gfs-challenges\src\graph.cpp
+	"Graph.h"
+	"utils.h"
+
+1620961420 c:\users\willian\desktop\graphs-ufs\gfs-challenges\gfs-challenges\include\graph.h
+
+1620959950 source:c:\users\willian\desktop\graphs-ufs\gfs-challenges\gfs-challenges\src\node.cpp
+	"Node.h"
+	"Typedef.h"
+	"utils.h"
+
+1620957221 c:\users\willian\desktop\graphs-ufs\gfs-challenges\gfs-challenges\include\node.h
+	"stdio.h"
+	"vector"
+	"Typedef.h"
+
+1620961435 source:c:\users\willian\desktop\graphs-ufs\gfs-challenges\gfs-challenges\main.cpp
+	"iostream"
+	"string"
+	"Graph.h"
+	"Node.h"
+	"utils.h"
+
+1620961376 c:\users\willian\desktop\graphs-ufs\gfs-challenges\gfs-challenges\include\utils.h
+	"vector"
+	"iostream"
+
+1620950581 c:\users\willian\desktop\graphs-ufs\gfs-challenges\gfs-challenges\include\typedef.h
+
+1621097870 source:c:\users\willian\desktop\graphs-ufs\gfs-challenges\main.cpp
+	"iostream"
+	"string"
+	"Graph.h"
+	"Node.h"
+	"utils.h"
+	"Labyrinth.h"
+	"Position.h"
+
+1621097161 c:\users\willian\desktop\graphs-ufs\gfs-challenges\include\graph.h
+	"vector"
+	"Node.h"
+
+1621040864 c:\users\willian\desktop\graphs-ufs\gfs-challenges\include\node.h
+	"stdio.h"
+	"vector"
+	"Typedef.h"
+
+1621088964 c:\users\willian\desktop\graphs-ufs\gfs-challenges\include\typedef.h
+	"Position.h"
+
+1621097210 c:\users\willian\desktop\graphs-ufs\gfs-challenges\include\utils.h
+	"vector"
+	"iostream"
+
+1621097359 source:c:\users\willian\desktop\graphs-ufs\gfs-challenges\src\graph.cpp
+	"Graph.h"
+	"utils.h"
+
+1621090464 source:c:\users\willian\desktop\graphs-ufs\gfs-challenges\src\node.cpp
+	"Node.h"
+	"Typedef.h"
+	"utils.h"
+	"Position.h"
+
+1621090964 source:c:\users\willian\desktop\graphs-ufs\gfs-challenges\src\position.cpp
+	"Position.h"
+	"string"
+
+1621090454 c:\users\willian\desktop\graphs-ufs\gfs-challenges\include\position.h
+	"string"
+
+1621094405 c:\users\willian\desktop\graphs-ufs\gfs-challenges\include\labyrinth.h
+	"Graph.h"
+	"Node.h"
+	"string"
+
+1621094497 source:c:\users\willian\desktop\graphs-ufs\gfs-challenges\src\labyrinth.cpp
+	"Labyrinth.h"
+	"Position.h"
+	"Node.h"
+	"utils.h"
+	"string"
+	"fstream"
+	"iostream"
+

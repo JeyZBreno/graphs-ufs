@@ -1,8 +1,19 @@
 #include "Position.h"
+#include "string"
+
+Position::Position(){
+    xPos = 0;
+    yPos = 0;
+}
 
 Position::Position(int xValue, int yValue){
     xPos = xValue;
     yPos = yValue;
+}
+
+Position::Position(const Position& toCopy){
+    xPos = toCopy.xPos;
+    yPos = toCopy.yPos;
 }
 
 Position::~Position(){
@@ -18,4 +29,9 @@ int Position::xValue(){
 
 int Position::yValue(){
     return yPos;
+}
+
+std::string Position::toString(){
+    std::string formatted = "[" + std::to_string(xPos) + "," + std::to_string(yPos) + "]";
+    return formatted;
 }
