@@ -32,14 +32,6 @@ static void printPath(std::vector<Node*> nodeList){
     std::cout << "\n\n";
 }
 
-static void printPath(std::vector<Value> values){
-    std::cout << "Path:\n\n";
-    for(auto i = values.begin(); i != values.end(); i++){
-        std::cout << " -> " << (*i).toString();
-    }
-    std::cout << "\n\n";
-}
-
 static std::string getPathInfo(std::vector<Node*> nodeList){
     std::string path;
     path = path + "Path:\n\n";
