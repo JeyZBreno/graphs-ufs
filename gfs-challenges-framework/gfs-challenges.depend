@@ -56,3 +56,33 @@
 	"fstream"
 	"iostream"
 
+1621190165 source:c:\users\willian\desktop\graphs-ufs\gfs-challenges-framework\src\graph.cpp
+	"Graph.h"
+	"utils.h"
+
+1621190077 c:\users\willian\desktop\graphs-ufs\gfs-challenges-framework\include\graph.h
+	"vector"
+	"Node.h"
+
+1621040864 c:\users\willian\desktop\graphs-ufs\gfs-challenges-framework\include\node.h
+	"stdio.h"
+	"vector"
+	"Typedef.h"
+
+1621190557 c:\users\willian\desktop\graphs-ufs\gfs-challenges-framework\include\typedef.h
+	"Position.h"
+
+1621090454 c:\users\willian\desktop\graphs-ufs\gfs-challenges-framework\include\position.h
+	"string"
+
+1621190866 c:\users\willian\desktop\graphs-ufs\gfs-challenges-framework\include\utils.h
+	"vector"
+	"iostream"
+	"fstream"
+
+1621090464 source:c:\users\willian\desktop\graphs-ufs\gfs-challenges-framework\src\node.cpp
+	"Node.h"
+	"Typedef.h"
+	"utils.h"
+	"Position.h"
+

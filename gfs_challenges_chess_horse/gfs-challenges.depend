@@ -30,7 +30,7 @@
 	"Typedef.h"
 	"utils.h"
 
-1621185671 source:c:\users\willian\desktop\graphs-ufs\gfs_challenges_chess_horse\main.cpp
+1621189694 source:c:\users\willian\desktop\graphs-ufs\gfs_challenges_chess_horse\main.cpp
 	"iostream"
 	"string"
 	"Graph.h"
@@ -38,7 +38,7 @@
 	"utils.h"
 	"ChessHorseHandler.h"
 
-1621089272 c:\users\willian\desktop\graphs-ufs\gfs_challenges_chess_horse\include\graph.h
+1621190227 c:\users\willian\desktop\graphs-ufs\gfs_challenges_chess_horse\include\graph.h
 	"vector"
 	"Node.h"
 
@@ -53,15 +53,16 @@
 1621179908 c:\users\willian\desktop\graphs-ufs\gfs_challenges_chess_horse\include\position.h
 	"string"
 
-1621185883 c:\users\willian\desktop\graphs-ufs\gfs_challenges_chess_horse\include\utils.h
+1621189879 c:\users\willian\desktop\graphs-ufs\gfs_challenges_chess_horse\include\utils.h
 	"vector"
 	"iostream"
+	"fstream"
 
-1621089272 source:c:\users\willian\desktop\graphs-ufs\gfs_challenges_chess_horse\src\graph.cpp
+1621190216 source:c:\users\willian\desktop\graphs-ufs\gfs_challenges_chess_horse\src\graph.cpp
 	"Graph.h"
 	"utils.h"
 
-1621182812 source:c:\users\willian\desktop\graphs-ufs\gfs_challenges_chess_horse\src\node.cpp
+1621186268 source:c:\users\willian\desktop\graphs-ufs\gfs_challenges_chess_horse\src\node.cpp
 	"Node.h"
 	"Typedef.h"
 	"utils.h"

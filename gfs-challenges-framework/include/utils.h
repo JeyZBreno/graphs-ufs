@@ -20,7 +20,7 @@ static std::vector<std::string> getPathInfo(std::vector<Value> values){
 
     std::string path;
     for(auto i = values.begin(); i != values.end(); i++){
-        path = path + " -> " + (*i).toString();
+        path = path + " -> " + std::to_string(*i);
     }
     path = path + "\n\n";
     infoLines.push_back(path);
@@ -32,12 +32,12 @@ static std::vector<std::string> getNodesInfo(std::vector<Node*> nodeList){
     std::vector<std::string> infoLines;
 
     for(auto i = nodeList.begin(); i != nodeList.end(); i++){
-        infoLines.push_back("From:" + (*i)->getValue().toString() + "\n");
+        infoLines.push_back("From:" + std::to_string((*i)->getValue()) + "\n");
 
         std::vector<Node*> relations = (*i)->retrieveRelations();
         std::string relationStr;
         for(auto j = relations.begin(); j != relations.end(); j++ ){
-            relationStr = relationStr + " -> " + (*j)->getValue().toString();
+            relationStr = relationStr + " -> " + std::to_string((*j)->getValue());
         }
         relationStr = relationStr + "\n\n";
         infoLines.push_back(relationStr);
@@ -46,18 +46,18 @@ static std::vector<std::string> getNodesInfo(std::vector<Node*> nodeList){
     return infoLines;
 }
 
-static void printLines(std::vector<std::string> content){
-    for(auto i = content.begin(); i != content.end(); i++){
-        std::cout << *i;
-    }
-}
-
 static void makeFile(std::string title, std::vector<std::string> content){
     std::ofstream file(title + ".txt");
     for(auto i = content.begin(); i != content.end(); i++){
         file << (*i);
     }
     file.close();
+}
+
+static void printLines(std::vector<std::string> content){
+    for(auto i = content.begin(); i != content.end(); i++){
+        std::cout << *i;
+    }
 }
 
 template <typename T>

@@ -25,11 +25,11 @@ class Graph{
 
         Node* getNode(Value nodeValue);
 
-        std::vector<Node*> findHamiltonianPath();
+        std::vector<Value> findHamiltonianPath();
 
-        std::vector<Node*> depthSearch(Node* from, Node* to);
+        std::vector<Value> depthSearch(Node* from, Node* to);
 
-        std::vector<Node*> widthSearch(Node* from, Node* to);
+        std::vector<Value> widthSearch(Node* from, Node* to);
 };
 
 #endif

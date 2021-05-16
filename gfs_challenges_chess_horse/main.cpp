@@ -11,10 +11,9 @@ int main(int filesCount, char** file){
 
     Graph g = handler.getHorsePath();
 
-    printNodes(g.getNodes());
-    //printPath(g.findHamiltonianPath());
+    printLines(getNodesInfo(g.getNodes()));
+    printLines(getPathInfo(g.findHamiltonianPath()));
 
-    std::cout << getPathInfo(g.findHamiltonianPath());
 
     return 1;
 }

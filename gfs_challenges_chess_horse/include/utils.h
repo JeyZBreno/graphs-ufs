@@ -3,6 +3,7 @@
 
 #include "vector"
 #include "iostream"
+#include "fstream"
 
 static bool nodeListContains(std::vector<Node*> nodeList, Node* node){
     for(auto i = nodeList.begin(); i != nodeList.end(); i++){
@@ -13,44 +14,58 @@ static bool nodeListContains(std::vector<Node*> nodeList, Node* node){
     return false;
 }
 
-static void printNodes(std::vector<Node*> nodeList){
-    for(auto i = nodeList.begin(); i != nodeList.end(); i++){
-        std::cout << "From:" << (*i)->getValue().toString() << "\n";
-        std::vector<Node*> relations = (*i)->retrieveRelations();
-        for(auto j = relations.begin(); j != relations.end(); j++ ){
-            std::cout << " -> " << (*j)->getValue().toString();
-        }
-        std::cout << "\n\n";
-    }
-}
+static std::vector<std::string> getPathInfo(std::vector<Value> values){
+    std::vector<std::string> infoLines;
+    infoLines.push_back("Path:\n\n");
 
-static void printPath(std::vector<Node*> nodeList){
-    std::cout << "Path:\n\n";
-    for(auto i = nodeList.begin(); i != nodeList.end(); i++){
-        std::cout << " -> " << (*i)->getValue().toString();
-    }
-    std::cout << "\n\n";
-}
-
-static std::string getPathInfo(std::vector<Node*> nodeList){
     std::string path;
-    path = path + "Path:\n\n";
-    for(auto i = nodeList.begin(); i != nodeList.end(); i++){
-        path = path + " -> " + (*i)->getValue().toString();
+    for(auto i = values.begin(); i != values.end(); i++){
+        path = path + " -> " + (*i).toString();
     }
     path = path + "\n\n";
+    infoLines.push_back(path);
+
+    return infoLines;
 }
 
-static std::string getNodesInfo(std::vector<Node*> nodeList){
-    std::string info;
+static std::vector<std::string> getNodesInfo(std::vector<Node*> nodeList){
+    std::vector<std::string> infoLines;
+
     for(auto i = nodeList.begin(); i != nodeList.end(); i++){
-        info = info + "From:" + (*i)->getValue().toString() + "\n";
+        infoLines.push_back("From:" + (*i)->getValue().toString() + "\n");
+
         std::vector<Node*> relations = (*i)->retrieveRelations();
+        std::string relationStr;
         for(auto j = relations.begin(); j != relations.end(); j++ ){
-            info = info + " -> " + (*j)->getValue().toString();
+            relationStr = relationStr + " -> " + (*j)->getValue().toString();
         }
-        info = info + "\n\n";
+        relationStr = relationStr + "\n\n";
+        infoLines.push_back(relationStr);
     }
+
+    return infoLines;
+}
+
+static void printLines(std::vector<std::string> content){
+    for(auto i = content.begin(); i != content.end(); i++){
+        std::cout << *i;
+    }
+}
+
+static void makeFile(std::string title, std::vector<std::string> content){
+    std::ofstream file(title + ".txt");
+    for(auto i = content.begin(); i != content.end(); i++){
+        file << (*i);
+    }
+    file.close();
+}
+
+template <typename T>
+std::vector<T> joinVectors(std::vector<T> listOne, std::vector<T> listTwo){
+    for(auto i = listTwo.begin(); i != listTwo.end(); i++){
+        listOne.push_back(*i);
+    }
+    return listOne;
 }
 
 template <typename T>

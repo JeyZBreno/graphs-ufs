@@ -7,7 +7,7 @@ Graph::Graph(){}
 
 Graph::~Graph(){
     for(auto i = nodes.begin(); i != nodes.end(); i ++){
-        delete(*i);
+        //delete(*i);
     }
 }
 
@@ -59,7 +59,7 @@ Graph Graph::createSubGraph(NodeVector subGraphNodes){
     return subGraph;
 }
 
-NodeVector Graph::findHamiltonianPath(){
+std::vector<Value> Graph::findHamiltonianPath(){
     NodeVector emptyVector;
     NodeVector biggestPath;
 
@@ -71,10 +71,15 @@ NodeVector Graph::findHamiltonianPath(){
     }
 
     if(biggestPath.size() == nodes.size()){
-        return biggestPath;
+        std::vector<Value> values;
+        for(auto i = biggestPath.begin(); i != biggestPath.end(); i++){
+            values.push_back((*i)->getValue());
+        }
+        return values;
     }
     else {
-        return emptyVector;
+
+        return std::vector<Value>();
     }
 }
 
@@ -116,7 +121,7 @@ NodeVector Graph::tryToFindPath(Node* currentNode, Node* toNode, NodeVector prev
     return emptyVector;
 }
 
-NodeVector Graph::widthSearch(Node* from, Node* to){
+std::vector<Value> Graph::widthSearch(Node* from, Node* to){
     NodeVector pendingSearch;
     pendingSearch.push_back(from);
     int currentIndex = 0;
@@ -146,9 +151,14 @@ NodeVector Graph::widthSearch(Node* from, Node* to){
     return result.depthSearch(result.getNode(from->getValue()), result.getNode(to->getValue()));
 }
 
-NodeVector Graph::depthSearch(Node* from, Node* to){
+std::vector<Value> Graph::depthSearch(Node* from, Node* to){
     NodeVector emptyVector;
-    return tryToFindPath(from, to, emptyVector);
+    std::vector<Value> values;
+    NodeVector foundPath = tryToFindPath(from, to, emptyVector);
+    for(auto i = foundPath.begin(); i != foundPath.end(); i++){
+        values.push_back((*i)->getValue());
+    }
+    return values;
 }
 
 
