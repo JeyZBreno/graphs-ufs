@@ -13,6 +13,10 @@ Labyrinth::~Labyrinth(){
 }
 
 Graph Labyrinth::transformIntoGraphFromFile(std::string fileName){
+    return transformIntoGraphFromText(retrieveStringFromFile(fileName));
+}
+
+std::string Labyrinth::retrieveStringFromFile(std::string fileName){
     std::string labyrinthText;
     std::ifstream labyrinthFile(fileName);
 
@@ -23,8 +27,32 @@ Graph Labyrinth::transformIntoGraphFromFile(std::string fileName){
         }
         labyrinthFile.close();
     }
-    std::cout << "Read file:\n-----" << labyrinthText << "\n------\n\n";
-    return transformIntoGraphFromText(labyrinthText);
+
+    return labyrinthText;
+}
+
+std::string Labyrinth::retrieveResolvedLabyrinthString(std::string fileName, std::vector<Value> resolvedPath){
+    std::string file = retrieveStringFromFile(fileName);
+
+    int line = 0;
+    int column = 0;
+    for(int letterIndex = 0; letterIndex < file.length(); letterIndex++){
+        char currentChar = file[letterIndex];
+
+        for(auto i = resolvedPath.begin(); i != resolvedPath.end(); i++){
+            if((*i).xValue() == column && (*i).yValue() == line){
+                file[letterIndex] = '+';
+            }
+        }
+
+        if(currentChar == '\n'){
+            line++;
+            column = 0;
+        }
+        column++;
+    }
+
+    return file;
 }
 
 Graph Labyrinth::transformIntoGraphFromText(std::string text){
@@ -35,15 +63,12 @@ Graph Labyrinth::transformIntoGraphFromText(std::string text){
     for(int letterIndex = 0; letterIndex < text.length(); letterIndex++){
         char currentChar = text[letterIndex];
 
-        switch(currentChar){
-            case '\n' :
-                line++;
-                column = 0;
-                break;
-
-            case clearWay :
-                result.createNode(Position(column,line));
-                break;
+        if(currentChar == '\n'){
+            line++;
+            column = 0;
+        }
+        if(currentChar == clearWay){
+            result.createNode(Position(column,line));
         }
         column++;
     }

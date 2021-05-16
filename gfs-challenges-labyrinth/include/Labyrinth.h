@@ -14,6 +14,8 @@ class Labyrinth
 
     std::vector<Node*> getNeighbors(Graph& graph, Position currentPosition);
 
+    std::string retrieveStringFromFile(std::string fileName);
+
     public:
         Labyrinth();
         virtual ~Labyrinth();
@@ -21,6 +23,8 @@ class Labyrinth
         Graph transformIntoGraphFromFile(std::string fileName);
 
         Graph transformIntoGraphFromText(std::string text);
+
+        std::string retrieveResolvedLabyrinthString(std::string fileName, std::vector<Value> resolvedPath);
 };
 
 #endif

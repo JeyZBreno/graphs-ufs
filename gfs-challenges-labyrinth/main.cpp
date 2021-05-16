@@ -8,11 +8,13 @@
 
 int main(int filesCount, char** file){
 
-    Labyrinth lab = Labyrinth();
-    Graph result = lab.transformIntoGraphFromFile("L1.txt");
+    std::string fileName = "L4.txt";
 
-    Node* entrance = result.getNode(Position(2,1));
-    Node* exit = result.getNode(Position(21,20));
+    Labyrinth lab = Labyrinth();
+    Graph result = lab.transformIntoGraphFromFile(fileName);
+
+    Node* entrance = result.getNode(Position(4,1));
+    Node* exit = result.getNode(Position(151,150));
 
     std::vector<std::string> resultFileContent;
 
@@ -27,6 +29,8 @@ int main(int filesCount, char** file){
     std::cout << "Width search size: " << widthSearchResult.size() << "\n\n";
 
     resultFileContent = joinVectors(resultFileContent, getPathInfo(widthSearchResult));
+
+    resultFileContent.push_back(lab.retrieveResolvedLabyrinthString(fileName, widthSearchResult));
 
     makeFile("L1-output", resultFileContent);
 
