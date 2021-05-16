@@ -22,7 +22,6 @@
 		</Compiler>
 		<Unit filename="include/Graph.h" />
 		<Unit filename="include/Node.h" />
-		<Unit filename="include/Position.h" />
 		<Unit filename="include/Typedef.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
@@ -32,7 +31,6 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Graph.cpp" />
 		<Unit filename="src/Node.cpp" />
-		<Unit filename="src/Position.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

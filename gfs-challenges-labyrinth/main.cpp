@@ -14,9 +14,9 @@ int main(int filesCount, char** file){
     Node* entrance = result.getNode(Position(4,1));
     Node* exit = result.getNode(Position(151,150));
 
-    //std::vector<Value> depthSearchResult = result.depthSearch(entrance, exit);
-    //std::cout << "Depth search size: " << depthSearchResult.size() << "\n\n";
-    //printPath(depthSearchResult);
+    std::vector<Value> depthSearchResult = result.depthSearch(entrance, exit);
+    std::cout << "Depth search size: " << depthSearchResult.size() << "\n\n";
+    printPath(depthSearchResult);
 
     std::vector<Value> widthSearchResult = result.widthSearch(entrance, exit);
     std::cout << "Width search size: " << widthSearchResult.size() << "\n\n";
